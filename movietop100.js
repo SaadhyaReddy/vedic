@@ -4,13 +4,7 @@ var request = require('request')
 app.set('view engine', 'ejs')
 app.get('/selectmovie',function(req,res){
    	request('https://api.themoviedb.org/3/movie/top_rated?api_key=3e3554e20f277ff6c6782e8cef861bcf&language=en-US&page=1', function(error, response, body){
-		//console.log(JSON.parse(body).[query].val)
-		
-		//res.send(JSON.parse(body).results[0].title)
-
-		//console.log(typeof(JSON.parse(body).results.i))
 		res.render('movietop100',{res : JSON.parse(body)})
-		//console.log(JSON.parse(body).results."0")
 	})
    })
 	app.get('/selectedmovie/:name',function(req,res){
